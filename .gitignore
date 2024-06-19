@@ -1,0 +1,13 @@
+__pycache__/
+readme.md
+
+venv/
+node_modules/
+*.env
+
+Makefile
+tr.py
+tt.py
+output.json
+
+db.sqlite3

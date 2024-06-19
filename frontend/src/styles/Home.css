@@ -1,0 +1,54 @@
+.home-container {
+    padding: 20px;
+}
+
+.home-li {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+.home-item {
+    flex: 1 1 calc(20% - 20px); /* Basis for roughly 5 items per row, adjust as needed */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    margin: 10px; /* Space between items */
+    max-width: 150px;
+}
+
+
+.home-image {
+    max-width: 100%;
+    /* height: auto; */
+    height: 160px;
+    width: 160px;
+    border-radius: 12px;
+}
+
+.home-genre {
+    margin-left: 12px;
+}
+
+
+.summary-div {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.summary-title{
+    margin: 10px auto;
+    justify-content: center;
+    display: flex;
+}
+
+/* .home-text {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+} */
+
+.push-to-end {
+    margin-top: auto;
+  }
