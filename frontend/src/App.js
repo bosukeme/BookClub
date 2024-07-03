@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"; 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -25,9 +26,22 @@ function RegisterAndLogout() {
   return <Register />
 }
 
+const theme = createTheme({
+  palette: {
+    type: 'light', // or 'dark' depending on your preference
+    grey: {
+      200: '#eeeeee', // Example color
+      700: '#616161'  // Example color
+    },
+  },
+});
+
+
+
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <BrowserRouter>
       <NavBar />
 
@@ -45,6 +59,7 @@ function App() {
         
       </Routes>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

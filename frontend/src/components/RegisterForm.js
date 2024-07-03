@@ -13,7 +13,7 @@ function RegisterForm() {
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({ username: '', password: '' });
     const navigate = useNavigate();
-    const route = "/auth/register/"
+    const route = "/api/auth/register/"
 
     const validateUsername = (username) => {
         if (username.length < 4 || username.length > 10) {

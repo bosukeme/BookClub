@@ -10,7 +10,7 @@ function LoginForm() {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const route = "/auth/token/"
+    const route = "/api/auth/token/"
 
 
     const handleSubmit = async (e) => {
@@ -20,9 +20,9 @@ function LoginForm() {
 
         try {
             const res = await api.post(route, {username, password});
-            if (res.data.data.access && res.data.data.refresh) {
-                localStorage.setItem(ACCESS_TOKEN, res.data.data.access);
-                localStorage.setItem(REFRESH_TOKEN, res.data.data.refresh);
+            if (res.data.access && res.data.refresh) {
+                localStorage.setItem(ACCESS_TOKEN, res.data.access);
+                localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
                 navigate("/");
             } else {
                 alert("Login failed: Invalid response from server.");

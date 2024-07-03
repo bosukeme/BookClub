@@ -3,18 +3,10 @@ from rest_framework.fields import CharField, EmailField
 # from django.contrib.auth.models import User
 from rest_framework import status
 from .models import CustomUser
-from rest_framework.exceptions import APIException
 
-# class UsernameLengthError(APIException):
-#     status_code = status.HTTP_400_BAD_REQUEST
-#     default_detail = 'Username should be between 4 and 10 characters long'
-#     default_code = 'invalid'
 
-class AuthError(serializers.ValidationError):
-    def __init__(self, detail=None, code=None):
-        if detail is None:
-            detail = "Invalid Input"
-        super().__init__(detail, code)
+
+
 
 
 class RegisterSerializer(serializers.ModelSerializer):

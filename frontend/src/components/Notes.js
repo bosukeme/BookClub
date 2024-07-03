@@ -13,10 +13,10 @@ function Notes() {
     const [title, setTitle] = useState("");
 
     const getNotes = async () => {
-        const route = "/notes/"
+        const route = "/api/notes/"
         try {
             const res = await api.get(route)
-            setNotes(res.data.data)
+            setNotes(res.data)
         }
         catch (error) {
             setNotes([])
@@ -25,7 +25,7 @@ function Notes() {
 
     const deleteNote = (id) => {
         api
-            .delete(`/notes/note/${id}/`)
+            .delete(`/api/notes/note/${id}/`)
             .then((res) => {
                 if (res.status === 204) alert("Note deleted!");
                 else alert("Failed to delete note.");
@@ -36,7 +36,7 @@ function Notes() {
 
     const updateNote = (id, updatedTitle, updatedContent) => {
         api
-            .put(`/notes/note/${id}/`, { title: updatedTitle, content: updatedContent})
+            .patch(`/api/notes/note/${id}/`, { title: updatedTitle, content: updatedContent})
             .then((res) => {
                 if (res.status === 200) alert("Note Update!");
                 else alert("Failed to update note.");
@@ -48,7 +48,7 @@ function Notes() {
     const createNote = (e) => {
         e.preventDefault();
         api
-            .post("/notes/", { content, title })
+            .post("/api/notes/", { content, title })
             .then((res) => {
                 if (res.status === 201) {
                     alert("Note created!");

@@ -4,10 +4,14 @@ from rest_framework.parsers import JSONParser
 from rest_framework import views, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from drf_spectacular.utils import extend_schema
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 from .serializer import RegisterSerializer
 
 
+@extend_schema(tags=['auth'])
 class RegisterAPIView(views.APIView):
     
     serializer_class = RegisterSerializer
@@ -16,7 +20,6 @@ class RegisterAPIView(views.APIView):
     def post(self, request):
         try:
             data = JSONParser().parse(request)
-            print(data)
             serializer = RegisterSerializer(data=data)
             if serializer.is_valid(raise_exception=True):
                 serializer.save()
@@ -28,3 +31,12 @@ class RegisterAPIView(views.APIView):
                 "result": "Error",
                 "message": f"Json Decoding error: {e}",
             }, status.HTTP_400_BAD_REQUEST)
+
+
+@extend_schema(tags=['auth'])
+class CustomTokenObtainPairView(TokenObtainPairView):
+    pass
+
+@extend_schema(tags=['auth'])
+class CustomTokenRefreshView(TokenRefreshView):
+    pass

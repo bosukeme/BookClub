@@ -19,7 +19,7 @@ function NavBar() {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                             <span className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Options
                             </span>
