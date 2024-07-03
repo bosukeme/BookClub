@@ -16,7 +16,7 @@
 ## Introduction
  The BookClub project is a <a href="https://www.django-rest-framework.org/">Django Rest Framework</a> and <a href="https://react.dev/"> React </a> application comprising of series of endpoints that displays a list of books, create notes and summaries. 
 
- ![Home](image1.png)
+ ![home](image1.PNG)
 
 Django is a python web framework used in the creation of complex database driven websites. It makes it easy to create secure and maintainable websites using python.
 Django is versatile and follows the “Batteries included” principle where almost everything you need can be gotten from Django and you don’t have to build from scratch. It is able to deliver content in almost any format (HTML, RSS, JSON, XML).
